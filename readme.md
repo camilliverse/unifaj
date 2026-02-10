@@ -1,1 +1,2 @@
-**Cursando** Ciencia da Computação - UNIFAJ - CAMPUS II 
+**college projects and classes
+**Currently studying Computer Science - UNIFAJ - Campus II
