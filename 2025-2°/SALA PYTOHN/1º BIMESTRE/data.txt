@@ -1,2 +1,0 @@
-{'id': 'e57501fc-6478-488c-b0ea-8de6ec725097', 'name': 'asd', 'surname': 'asd', 'phone': 'asd', 'address': 'asd', 'zip_code': 'asd'}
-{'id': 'c4913d06-f8f1-4c03-98c5-7de498ee0822', 'name': 'qwe', 'surname': 'qwe', 'phone': 'qwe', 'address': 'qwe', 'zip_code': 'qwe'}
