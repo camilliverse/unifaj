@@ -1,0 +1,186 @@
+JAVADEL ATIVIDADES 
+
+NOME: CAMILLI DOS SANTOS | RA: 12529495 
+
+2.7
+
+a) COMENTÁRIOS são utilizados para documentar um programa e aprimorar sua legibilidade.
+
+b) Uma decisão pode ser tomada em um programa Java com um(a) INSTRUÇÃO IF.
+
+c) Os cálculos normalmente são realizados pelas instruções DE ATRIBUIÇÃO.
+
+d) Os operadores aritméticos com a mesma precedência da multiplicação são DIVISÃO (/) e RESTO (%).
+
+e) Quando parênteses em uma expressão aritmética estão aninhados, o conjunto de parênteses MAIS INTERNO é avaliado primeiro.
+
+f) Uma posição na memória do computador que pode conter valores diferentes várias vezes ao longo da execução de um programa é
+chamada VARIÁVEL.
+
+2.8
+
+a) System.out.print("Enter an integer: ");
+b) a = b * c;
+c) // Este programa executa um cálculo de exemplo de folha de pagamento
+
+2.9
+
+a) Falso
+b) Verdadeiro
+c) Verdadeiro
+d) Falso
+
+Exercício 2.10 - RA 12530386 - Jeanderson Silva
+x = 2
+Value of 2 + 2 is 4
+x =
+5 = 5
+
+Exercício 2.11 - RA 12530386 - Jeanderson Silva
+a) p = i + j + k + 7 => p = 13 (variável p foi modificada)
+b) System.out.println nao modifica variaveis
+c) System.out.println nao modifica variaveis
+d) value = input.nextInt() modifica a variavel value
+
+Exercício 2.12 - RA 12530386 - Jeanderson Silva
+a) y = a * x * x * x + 7         => y = 61 (CORRETO)
+b) y = a * x * x * (x + 7)        => y = 120 (ERRADO)
+c) y = (a * x) * x * (x + 7)      => y = 120 (ERRADO)
+d) y = (a * x) * x * x + 7        => y = 61 (CORRETO)
+e) y = a * (x * x * x) + 7        => y = 61 (CORRETO)
+f) y = a * x * (x * x + 7)        => y = 60 (ERRADO)
+
+Exercício 2.13 - RA 12530386 - Jeanderson Silva
+a) x = 7 + 3 * 6 / 2 - 1 => x = 15
+b) x = 2 % 2 + 2 * 2 - 2 / 2 => x = 3
+c) x = (3 * 9 * (3 + (9 * 3 / (3)))) => x = 324
+
+Exercício 2.14 - RA 12530386 - Jeanderson Silva
+1 2 3 4
+1 2 3 4
+1 2 3 4
+
+Exercício 2.15 - RA 12530386 - Jeanderson Silva
+Enter first integer: 10
+Enter second integer: 5
+Sum is 15
+Product is 50
+Difference is 5
+Quotient is 2
+
+Exercício 2.16 - RA 12530386 - Jeanderson Silva
+Enter first integer: 10
+Enter second integer: 5
+10 is larger
+(CASO SEJA NUMEROS IGUAIS: These numbers are equal)
+
+Exercício 2.17 - RA 12530386 - Jeanderson Silva
+Enter first integer: 2
+Enter second integer: 3
+Enter third integer: 4
+Sum is 9
+Average is 3
+Product is 24
+Smallest is 2
+Largest is 4
+
+Exercício 2.18 - RA 12530386 - Jeanderson Silva
+*********
+*       *
+*       *
+*       *
+*       *
+*       *
+*       *
+*       *
+*********
+
+  ***  
+ *   * 
+*     *
+*     *
+*     *
+*     *
+*     *
+ *   * 
+  ***  
+
+    *    
+   ***   
+  *****  
+    *    
+    *    
+    *    
+    *    
+    *    
+    *    
+
+    *    
+   * *   
+  *   *  
+ *     * 
+  *   *  
+   * *   
+    *    
+
+Exercício 2.19 - RA 12530386 - Jeanderson Silva
+*
+**
+***
+****
+*****
+
+Exercício 2.20 - RA 12530386 - Jeanderson Silva
+*
+***
+*****
+****
+**
+
+Exercício 2.21 - RA 12530386 - Jeanderson Silva
+***************
+
+Exercício 2.22 - RA 12530386 - Jeanderson Silva
+****
+*****
+******
+
+Exercício 2.23 - RA 12530386 - Jeanderson Silva
+*
+***
+*****
+
+Exercício 2.24 - RA 12530386 - Jeanderson Silva
+Enter first integer: 5
+Enter second integer: 2
+Enter third integer: 9
+Enter fourth integer: 1
+Enter fifth integer: 7
+Largest: 9
+Smallest: 1
+
+Exercício 2.25 - RA 12530386 - Jeanderson Silva
+Enter an integer: 8
+8 is even
+(COM UMA ENTRADA 7 MUDA O RESULTADO)
+Enter an integer: 7
+7 is odd
+
+Exercício 2.26 - RA 12530386 - Jeanderson Silva
+Enter first integer: 10
+Enter second integer: 5
+10 is a multiple of 5
+OU
+Enter first integer: 7
+Enter second integer: 3
+7 is not a multiple of 3
+
+Exercício 2.27 - RA 12530386 - Jeanderson Silva
+* * * * * * * *
+ * * * * * * * *
+* * * * * * * *
+ * * * * * * * *
+* * * * * * * *
+ * * * * * * * *
+* * * * * * * *
+ * * * * * * * *
