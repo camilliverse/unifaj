@@ -4,6 +4,15 @@ public class Pessoa {
     private String nome;
     private int idade;
     private String cpf;
+    private float salario;
+
+    public float getSalario() {
+        return salario;
+    }
+
+    public void setSalario(float salario) {
+        this.salario = salario;
+    }
 
     public Pessoa(){
 
