@@ -37,6 +37,24 @@ public class ServicoContoller {
         return servicos.put(servico.getId(), servico);
     }
 
+    @PutMapping("/servico")
+    public Servico putServico(@RequestBody Servico servico) {
+        Servico existente = servicos.get(servico.getId());
+        if (existente != null) {
+            existente.setValor(servico.getValor());
+        }
+       return existente;
+    }
+
+    @DeleteMapping("/servico/{id}")
+    public Servico deleteServico(@PathVariable Integer id) {
+        Servico existente = servicos.get(id);
+        if (existente != null) {
+            servicos.remove(id);
+        }
+        return existente;
+    }
+
     @GetMapping("/test")
     public String teste(){
         return "Que FRIOOO";
