@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a2df060b-a738-4a5a-b52e-d67b8fbce1b3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../2026-3/Programação POO/ExciciosDeitel7Proj/src/br/edu/unifaj/poo/Aula6Exercicio715/Manipulations.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2026-3/Programação POO/usuario-servico/src/main/java/com/example/usuarioservico/controller/UsuarioController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2026-3/Programação POO/usuario-servico/src/main/java/com/example/usuarioservico/dto/LoginResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2026-3/Programação POO/usuario-servico/src/main/java/com/example/usuarioservico/dto/LoginResquestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2026-3/Programação POO/usuario-servico/src/main/java/com/example/usuarioservico/entidades/Usuario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2026-3/Programação POO/usuario-servico/src/main/java/com/example/usuarioservico/repository/UsuarioRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2026-3/Programação POO/usuario-servico/src/main/java/com/example/usuarioservico/servico/UsuarioServico.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX010/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX010/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX010/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX010/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX010/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX010/EX010.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX010/src/br/com/unifaj/javadel/EX10.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX012/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX012/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX012/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX012/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX012/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX012/EX012.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX012/src/br/com/unifaj/javadel/EX12.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX013/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX013/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX013/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX013/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX013/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX013/EX013.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX013/src/br/com/unifaj/javadel/EX13.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX015/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX015/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX015/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX015/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX015/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX015/EX015.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX015/src/br/com/unifaj/javadel/EX15.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX016/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX016/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX016/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX016/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX016/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX016/EX016.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX016/src/br/com/unifaj/javadel/EX016.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX017/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX017/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX017/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX017/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX017/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX017/EX017.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX017/src/br/com/unifaj/javadel/EX17.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX018/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX018/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX018/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX018/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX018/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX018/EX018.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX018/src/br/com/unifaj/javadel/EX18.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX019/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX019/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX019/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX019/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX019/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX019/EX019.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX019/src/br/com/unifaj/javadel/EX19.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX020/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX020/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX020/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX020/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX020/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX020/EX020.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX020/src/br/com/unifaj/javadel/EX20.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX021/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX021/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX021/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX021/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX021/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX021/EX021.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX021/src/br/com/unifaj/javadel/EX21.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX022/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX022/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX022/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX022/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX022/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX022/EX022.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX022/src/br/com/unifaj/javadel/EX22.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX023/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX023/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX023/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX023/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX023/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX023/EX023.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX023/src/br/com/unifaj/javadel/EX23.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX024/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX024/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX024/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX024/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX024/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX024/EX024.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX024/src/br/com/unifaj/javadel/EX24.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX025/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX025/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX025/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX025/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX025/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX025/EX025.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX025/src/br/com/unifaj/javadel/EX25.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX026/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX026/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX026/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX026/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX026/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX026/EX026.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX026/src/br/com/unifaj/javadel/EX26.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX027/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX027/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX027/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX027/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX027/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX027/EX027.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX027/src/br/com/unifaj/javadel/EX27.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX14/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX14/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX14/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX14/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX14/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX14/EX14.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EX14/src/br/com/unifaj/javadel/EX14.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EXNEW/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EXNEW/.idea/EXNEW.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EXNEW/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EXNEW/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EXNEW/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EXNEW01/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EXNEW01/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EXNEW01/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EXNEW01/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EXNEW01/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EXNEW01/EXNEW01.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EXNEW01/src/br/com/edu/unifaj/poo/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EXNEW01/src/br/com/edu/unifaj/poo/arrow/Execute.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EXNEW01/src/br/com/edu/unifaj/poo/arrow/TesteArrwFunction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EXNEW01/src/br/com/edu/unifaj/poo/cdItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EXNEW01/src/br/com/edu/unifaj/poo/crud/Animal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EXNEW01/src/br/com/edu/unifaj/poo/crud/AnimalCrud.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EXNEW01/src/br/com/edu/unifaj/poo/crud/Crud.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EXNEW01/src/br/com/edu/unifaj/poo/crud/Entity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EXNEW01/src/br/com/edu/unifaj/poo/crud/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EXNEW01/src/br/com/edu/unifaj/poo/dvdItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EXNEW01/src/br/com/edu/unifaj/poo/itemBase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/EXNEW01/src/br/com/edu/unifaj/poo/livroItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/Ex011/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/Ex011/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/Ex011/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/Ex011/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/Ex011/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/Ex011/Ex011.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/Ex011/src/br/com/unifaj/javadel/Ex11.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/aula8-service/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/aula8-service/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/aula8-service/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/aula8-service/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/aula8-service/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/aula8-service/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/aula8-service/src/main/java/br/edu/unifaj/cc/poo/aula8service/Aula8ServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/aula8-service/src/main/java/br/edu/unifaj/cc/poo/aula8service/Servico.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/aula8-service/src/main/java/br/edu/unifaj/cc/poo/aula8service/ServicoContoller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/aula8-service/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/aula8-service/src/main/resources/static/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2026-3/Programação POO/aula8-service/src/test/java/br/edu/unifaj/cc/poo/aula8service/Aula8ServiceApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4,
+  "fromUser": false
+}]]></component>
+  <component name="ProjectId" id="3HbtjNV1Gj0SjDK36Xuugc0DdVO" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/camil/OneDrive/Documentos/UNIFAJ-FACULDADE/unifaj/2026-4/POO II/aula01-convenio-service"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.32098.37" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a2df060b-a738-4a5a-b52e-d67b8fbce1b3" name="Changes" comment="" />
+      <created>1786148731050</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1786148731050</updated>
+    </task>
+    <servers />
+  </component>
+</project>

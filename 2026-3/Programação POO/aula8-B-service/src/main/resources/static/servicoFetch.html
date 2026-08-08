@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Criar Serviço - Atual - Fetch</title>
+</head>
+<body>
+<h1>Criar serviço com Fetch</h1>
+
+ID: <input type="number" id="id" placeholder="ID"><br>
+Nome: <input type="text" id="nome" placeholder="Nome"><br>
+Descrição: <input type="text" id="descr" placeholder="Descrição"><br>
+Valor: <input type="number" id="valor" placeholder="Valor"><br>
+<button  onclick="enviarFetch()">Criar</button>
+
+<script>
+  function enviarFetch() {
+    let obj = {id: id.value, nome: nome.value,
+           desc: descr.value, valor: valor.value};
+    let json = JSON.stringify(obj);
+    fetch('/api/servico',
+        {
+           method: 'POST',
+           body: json,
+           headers: {
+             'Content-Type': 'application/json',
+             'Accept': 'application/json'
+           }
+        })
+  .then(response => response.json())
+  .then(json => alert(json))
+  .catch(error => alert(error));
+}
+</script>
+
+</body>
+</html>
