@@ -8,12 +8,13 @@ using namespace std;
 
 int main() {
     
-    int i, dim, maior = 0, menor = 1, aux, cont = 0, n; 
+    int i,j, dim, maior = 0, menor = 1, aux, cont = 0, n; 
+    int pos = 0;
     float r;
 
     cout << "Informe a dimensao do vetor: ";
     cin >> dim;
-    
+
     float v[dim];
 
     srand(time(NULL)); 
@@ -28,17 +29,34 @@ int main() {
         
         if(r > 12.8 && r <= 28.3){
             v[i] = r;
-            cont++;
+
+            if(v[i] > maior){
+            maior = v[i];
+            pos = i;
+            
+        }
+        cont++;
+        }
+    }
+
+
+    for(i= 0; i<=8;i++){
+        for(j=i+1;j<9;j++){
+            if(v[i] > v[j]){
+                aux = v[i];
+                v[i] = v[j];
+                v[j] = aux;
+            }
         }
     }
     
+    
     for(i = 0; i < 10; i++){
-        cout << "v[" << i << "] = "
-             << fixed << setprecision(2)
-             << v[i] << endl;
+        cout << "v[" << i << "] = " << fixed << setprecision(2) << v[i] << endl;
     }
 
     cout << "\n\nNumeros gerados: " << cont;
+    cout << "\nMaior numero: " << maior << " | Posicao: " << pos << endl;
     
     
 //    for (i = 0; i < dim; i++) {
