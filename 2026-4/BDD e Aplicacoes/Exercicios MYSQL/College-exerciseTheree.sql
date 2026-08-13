@@ -52,12 +52,9 @@ INSERT INTO aluno_disciplina (id_aluno, id_disciplina) VALUES
 (3, 3),
 (3, 5);
 
-SELECT *
-FROM aluno;
+SELECT * FROM aluno;
 
-SELECT *
-FROM aluno
-WHERE sexo = 'M';
+SELECT * FROM aluno WHERE sexo = 'M';
 
 ALTER TABLE aluno
 ADD formado BOOLEAN;

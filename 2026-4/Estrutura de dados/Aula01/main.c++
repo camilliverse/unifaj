@@ -30,11 +30,11 @@ int main() {
         if(r > 12.8 && r <= 28.3){
             v[i] = r;
 
-            if(v[i] > maior){
-            maior = v[i];
-            pos = i;
-            
-        }
+           // if(v[i] > maior){
+           // maior = v[i];
+           // pos = i;
+
+       // }
         cont++;
         }
     }
