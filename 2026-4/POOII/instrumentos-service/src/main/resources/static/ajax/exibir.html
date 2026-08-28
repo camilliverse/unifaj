@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemplo de GET no AJAX</title>
+    <script>
+        function exibir() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var obj = JSON.parse(this.responseText);
+                    montarIlha(obj)
+                }
+            }
+            xmlhttp.open("GET", "ilha.json", true);
+            xmlhttp.send();
+        }
+        function montarIlha(obj) {
+            nomeInp.value = obj.nome;
+            descInp.value = obj.desc
+        }
+    </script>
+</head>
+<body>
+<h1>Exemplo de GET no AJAX</h1>
+<button onclick="exibir()">Exibir</button><br/>
+<input id="nomeInp" type="text"><br/>
+<input id="descInp" type="text"><br/>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Alterar Instrumento musical</title>
+  <link rel ="stylesheet" type ="text/css" href="css/instrumento.css"/>
+  <script type ="text/javascript" src="js/instrumento.js"></script>
+</head>
+<body onload="buscarInstrumento();">
+
+<h1>Alterar Instrumento musical</h1>
+
+<div style="max-width: 500px;">
+  <label for="nome">Nome</label>
+  <input id="nome" type="text">
+  <label for="tipo">Tipo</label>
+  <input id="tipo" type="text">
+  <label for="preco">Preço</label>
+  <input id="preco" type="number">
+  <label for="descricao">Descrição</label>
+  <input id="descricao" type="text" >
+  <button onclick="atualizarInstrumento()">Atualizar</button>
+  <a href="InstrumentoListar.html">Listar</a>
+</div>
+</body>
+</html>

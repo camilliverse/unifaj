@@ -1,0 +1,46 @@
+#Valor do IP da Máquina
+#ipconfig
+#Adaptador de Rede sem Fio Wi-Fi: Endereço IPv4: 192.168.1.167
+
+#OK
+curl -X POST http://localhost:8080/usuarioValidar -H "Content-type: application/json" ^
+      -d "{\"usuario\":\"maria\", \"senha\":\"123\", \"server\":\"192.168.1.167\", \"token\":"123" }"
+
+#SENHA Errada
+curl -X POST http://localhost:8080/usuarioValidar -H "Content-type: application/json" ^
+      -d "{\"usuario\":\"maria\", \"senha\":\"XXX\", \"server\":\"192.168.1.167\", \"token\":"123" }"
+
+
+#USUARIO Errado
+curl -X POST http://localhost:8080/usuarioValidar -H "Content-type: application/json" ^
+      -d "{\"usuario\":\"mariaXXX\", \"senha\":\"123\", \"server\":\"192.168.1.167\", \"token\":"123" }"
+
+#USUARIO Cadastrar
+curl -X POST http://localhost:8080/usuario -H "Content-type: application/json" ^
+      -d "{\"usuario\":\"jose\", \"senha\":\"1234\", \"server\":\"192.168.1.167\", \"token\":null }"
+
+#USUARIO Cadastrar - Repetir
+#Tem de retornar erro e informar que usuário já cadastrado
+
+
+#INSTRUMENTO - Listar todos
+curl http://localhost:8080/instrumento
+
+#INSTRUMENTO - Obter o ID=1
+curl http://localhost:8080/instrumento/1
+
+#INSTRUMENTO - Incluir
+curl -X POST http://localhost:8080/instrumento -H "Content-type:application/json" ^
+   -d "{\"nome\":\"Bateria\",\"tipo\":\"Bateria\",\"preco\":2300.0,\"descricao\":\"Bateria 6 pecas\"}"
+
+#INSTRUMENTO - Alterar
+curl -X PUT http://localhost:8080/instrumento/6 -H "Content-type:application/json" ^
+   -d "{\"id\":4,\"nome\":\"Bateria\",\"tipo\":\"Bateria\",\"preco\":4600.0,\"descricao\":\"Bateria 6 pecas\"}"
+
+
+#INSTRUMENTO - Alterar Preco
+curl -X PUT http://localhost:8080/instrumentoPreco -H "Content-type:application/json" ^
+   -d "{\"id\":10,\"preco\":4700.0}"
+
+curl -X DELETE http://localhost:8080/instrumento/10
+
