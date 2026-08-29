@@ -1,8 +1,6 @@
 package unifaj.com.planoSaude.service;
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import unifaj.com.planoSaude.dao.PacienteDAO;
 import unifaj.com.planoSaude.entity.Paciente;
 
 import java.util.List;
@@ -11,7 +9,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PacienteService {
 
-    private final PacienteDAO pacienteDAO;
+    private final unifaj.com.planoSaude.dao.PacienteDAO pacienteDAO;
 
     public Paciente cadastrar(Paciente paciente) {
         return pacienteDAO.save(paciente);
