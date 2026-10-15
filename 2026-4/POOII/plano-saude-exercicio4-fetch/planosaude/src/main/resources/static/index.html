@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Plano de Saude - Pagina Inicial</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topo">
+    <h1>Sistema Plano de Saude - Aula 3 / Exercicio 4 (JavaScript Fetch)</h1>
+    <div class="aluno" id="dados-aluno">Carregando dados do aluno...</div>
+</header>
+
+<nav class="menu">
+    <a href="index.html">Inicio</a>
+    <a href="medico-listar.html">Medicos</a>
+    <a href="paciente-listar.html">Pacientes</a>
+</nav>
+
+<main>
+    <h2>Bem-vindo(a)</h2>
+    <p>
+        Este sistema demonstra o CRUD (Listar, Incluir, Alterar e Excluir) de duas
+        classes do dominio <strong>Plano de Saude</strong>: <strong>Medico</strong> e
+        <strong>Paciente</strong>. Toda a comunicacao com o Backend (Spring Boot)
+        e feita atraves da API <strong>Fetch</strong> do JavaScript, consumindo os
+        endpoints REST criados no Exercicio 2.
+    </p>
+
+    <div class="cartao-home">
+        <h3>Medicos</h3>
+        <p>Atributos: id, nome, crm, especialidade, telefone.</p>
+        <a class="btn" href="medico-listar.html">Listar</a>
+        <a class="btn" href="medico-incluir.html">Incluir</a>
+    </div>
+
+    <div class="cartao-home">
+        <h3>Pacientes</h3>
+        <p>Atributos: id, nome, cpf, dataNascimento, telefone.</p>
+        <a class="btn" href="paciente-listar.html">Listar</a>
+        <a class="btn" href="paciente-incluir.html">Incluir</a>
+    </div>
+</main>
+
+<script src="js/aluno.js"></script>
+</body>
+</html>

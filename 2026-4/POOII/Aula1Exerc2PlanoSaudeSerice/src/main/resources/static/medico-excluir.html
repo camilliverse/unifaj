@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano de Saúde — Excluir Médico</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+    <h1>Plano de Saúde</h1>
+    <p class="subtitle">Aluna: Camilli dos Santos | RA: 12529495</p>
+    <p class="subtitle">
+        <a href="index.html" style="color:#60a5fa;">Início</a> |
+        <a href="paciente-listar.html" style="color:#60a5fa;">Pacientes</a> |
+        <a href="medico-listar.html" style="color:#60a5fa;">Médicos</a>
+    </p>
+
+    <section class="panel">
+        <h2>Excluir Médico</h2>
+        <p style="color:#94a3b8;">Confira os dados antes de confirmar:</p>
+
+        <label for="id">ID</label>
+        <input id="id" disabled>
+
+        <div class="row">
+            <div><label for="nome">Nome</label><input id="nome" disabled></div>
+            <div><label for="crm">CRM</label><input id="crm" disabled></div>
+        </div>
+
+        <div class="row">
+            <div><label for="especialidade">Especialidade</label><input id="especialidade" disabled></div>
+            <div><label for="telefone">Telefone</label><input id="telefone" disabled></div>
+        </div>
+
+        <button class="btn-danger" onclick="excluir()">Confirmar exclusão (DELETE)</button>
+        <button class="btn-secondary" onclick="location.href='medico-listar.html'">Cancelar</button>
+
+        <h3>Resultado</h3>
+        <pre class="out" id="out">-</pre>
+    </section>
+</main>

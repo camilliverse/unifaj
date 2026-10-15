@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plano de Saúde — Teste REST API</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>Plano de Saúde — Teste da API REST</h1>
+  <p class="subtitle">
+    Aluna: Camilli dos Santos | RA: 12529495
+  </p>
+  <p class="subtitle">
+    Aula 2 - <a href="exercicio3.html" style="color:#60a5fa;">abrir Exercício 3 (JavaScript Orientado a Objetos)</a>
+  </p>
+
+  <div class="grid">
+    <section class="panel">
+      <h2>Paciente <span class="badge">CRUD completo</span></h2>
+
+      <div class="row">
+        <div><button class="btn-primary" onclick="listarPacientes()">GET todos</button></div>
+        <div><input id="pacGetId" placeholder="id para GET/DELETE"></div>
+        <div><button class="btn-secondary" onclick="obterPaciente()">GET por id</button></div>
+        <div><button class="btn-danger" onclick="excluirPaciente()">DELETE</button></div>
+      </div>
+
+      <h3>Criar / Atualizar</h3>
+      <label for="pacId">id (vazio para POST, preenchido para PUT)</label>
+      <input id="pacId" placeholder="ex: 1">
+
+      <div class="row">
+        <div><label for="pacNome">Nome</label><input id="pacNome"></div>
+        <div><label for="pacCpf">CPF</label><input id="pacCpf"></div>
+      </div>
+
+      <div class="row">
+        <div><label for="pacTelefone">Telefone</label><input id="pacTelefone"></div>
+        <div><label for="pacEmail">E-mail</label><input id="pacEmail"></div>
+      </div>
+
+      <div class="row">
+        <div><label for="pacCarteirinha">Carteirinha</label><input id="pacCarteirinha"></div>
+        <div><label for="pacNascimento">Nascimento (AAAA-MM-DD)</label><input id="pacNascimento" type="date"></div>
+      </div>
+
+      <button class="btn-primary" onclick="salvarPaciente()">POST / PUT</button>
+
+      <h3>Resultado</h3>
+      <pre class="out" id="outPaciente">-</pre>
+    </section>
+
+    <section class="panel">
+      <h2>Consulta <span class="badge">CRUD completo</span></h2>
+
+      <div class="row">
+        <div><button class="btn-primary" onclick="listarConsultas()">GET todas</button></div>
+        <div><input id="conGetId" placeholder="id para GET/DELETE/cancelar"></div>
+        <div><button class="btn-secondary" onclick="obterConsulta()">GET por id</button></div>
+        <div><button class="btn-danger" onclick="excluirConsulta()">DELETE</button></div>
+      </div>
+
+      <button class="btn-success" onclick="cancelarConsulta()">PATCH cancelar</button>
+
+      <h3>Criar / Atualizar</h3>
+      <label for="conId">id (vazio para POST, preenchido para PUT)</label>
+      <input id="conId" placeholder="ex: 1">
+
+      <div class="row">
+        <div><label for="conData">Data (AAAA-MM-DD)</label><input id="conData" type="date"></div>
+        <div><label for="conHorario">Horário (HH:MM)</label><input id="conHorario" type="time"></div>
+      </div>
+
+      <div class="row">
+        <div><label for="conPacienteId">id do paciente</label><input id="conPacienteId" type="number" min="1"></div>
+        <div><label for="conMedicoId">id do médico</label><input id="conMedicoId" type="number" min="1"></div>
+      </div>
+
+      <button class="btn-primary" onclick="salvarConsulta()">POST / PUT</button>
+
+      <h3>Resultado</h3>
+      <pre class="out" id="outConsulta">-</pre>
+    </section>
+  </div>
+</main>
+
+<script>
+  const BASE = "/api/planosaude";
+
+  function mostrar(id, dados) {
+    document.getElementById(id).textContent =
+            typeof dados === "string" ? dados : JSON.stringify(dados, null, 2);
+  }
+
+  async function chamar(url, options, resultado) {
+    try {
+      const resposta = await fetch(url, options);
+      const corpo = resposta.status === 204
+              ? null
+              : await resposta.json().catch(() => null);
+
+      mostrar(resultado, { status: resposta.status, body: corpo });
+    } catch (erro) {
+      mostrar(resultado, "Erro de rede: " + erro.message);
+    }
+  }
+
+  function listarPacientes() {
+    chamar(`${BASE}/paciente`, { method: "GET" }, "outPaciente");
+  }
+
+  function obterPaciente() {
+    const id = document.getElementById("pacGetId").value;
+    chamar(`${BASE}/paciente/${id}`, { method: "GET" }, "outPaciente");
+  }
+
+  function excluirPaciente() {
+    const id = document.getElementById("pacGetId").value;
+    chamar(`${BASE}/paciente/${id}`, { method: "DELETE" }, "outPaciente");
+  }
+
+  function salvarPaciente() {
+    const id = document.getElementById("pacId").value;
+    const dados = {
+      nome: document.getElementById("pacNome").value,
+      cpf: document.getElementById("pacCpf").value,
+      telefone: document.getElementById("pacTelefone").value,
+      email: document.getElementById("pacEmail").value,
+      numeroCarteirinha: document.getElementById("pacCarteirinha").value,
+      dataNascimento: document.getElementById("pacNascimento").value || null
+    };
+
+    if (id) dados.id = Number(id);
+
+    chamar(`${BASE}/paciente`, {
+      method: id ? "PUT" : "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(dados)
+    }, "outPaciente");
+  }
+
+  function listarConsultas() {
+    chamar(`${BASE}/consulta`, { method: "GET" }, "outConsulta");
+  }
+
+  function obterConsulta() {
+    const id = document.getElementById("conGetId").value;
+    chamar(`${BASE}/consulta/${id}`, { method: "GET" }, "outConsulta");
+  }
+
+  function excluirConsulta() {
+    const id = document.getElementById("conGetId").value;
+    chamar(`${BASE}/consulta/${id}`, { method: "DELETE" }, "outConsulta");
+  }
+
+  function cancelarConsulta() {
+    const id = document.getElementById("conGetId").value;
+    chamar(`${BASE}/consulta/${id}/cancelar`, { method: "PATCH" }, "outConsulta");
+  }
+
+  function salvarConsulta() {
+    const id = document.getElementById("conId").value;
+    const horario = document.getElementById("conHorario").value;
+    const pacienteId = document.getElementById("conPacienteId").value;
+    const medicoId = document.getElementById("conMedicoId").value;
+
+    const dados = {
+      data: document.getElementById("conData").value || null,
+      horario: horario ? `${horario}:00` : null,
+      paciente: pacienteId ? { id: Number(pacienteId) } : null,
+      medico: medicoId ? { id: Number(medicoId) } : null
+    };
+
+    if (id) dados.id = Number(id);
+
+    chamar(`${BASE}/consulta`, {
+      method: id ? "PUT" : "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(dados)
+    }, "outConsulta");
+  }
+</script>
+</body>
+</html>

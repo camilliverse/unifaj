@@ -1,24 +1,33 @@
 package unifaj.com.planosaude.entity;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
-@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class Medico extends ProfissionalSaude {
+@Entity
+@Table(name = "medico")
+public class Medico {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @NotBlank(message = "O nome do medico e obrigatorio")
+    private String nome;
+
+    @NotBlank(message = "O CRM e obrigatorio")
     private String crm;
 
-    @ManyToOne
-    private Especialidade especialidade;
+    private String especialidade;
 
-    @ManyToOne
-    private Clinica clinica;
+    private String telefone;
 }

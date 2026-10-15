@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano de Saúde — Listar Médicos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+    <h1>Plano de Saúde</h1>
+    <p class="subtitle">Aluna: Camilli dos Santos | RA: 12529495</p>
+    <p class="subtitle">
+        <a href="index.html" style="color:#60a5fa;">Início</a> |
+        <a href="paciente-listar.html" style="color:#60a5fa;">Pacientes</a> |
+        <a href="medico-listar.html" style="color:#60a5fa;">Médicos</a>
+    </p>
+
+    <section class="panel">
+        <h2>Médicos <span class="badge">Listagem</span></h2>
+
+        <div class="row">
+            <div><a class="btn-primary" href="medico-incluir.html" style="text-decoration:none;display:inline-block;">+ Incluir Médico</a></div>
+        </div>
+
+        <div id="mensagem" style="margin-top:12px;"></div>
+
+        <table class="tabela">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>CRM</th>
+                <th>Especialidade</th>
+                <th>Telefone</th>
+                <th>Ações</th>
+            </tr>
+            </thead>
+            <tbody id="corpoTabela">
+            <tr><td colspan="6">Carregando...</td></tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+
+</body>
+</html>

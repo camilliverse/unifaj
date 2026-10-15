@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano de Saúde — Aula 3 </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+    <h1>Plano de Saúde — Aula 3 </h1>
+    <p class="subtitle">Aluna: Camilli dos Santos | RA: 12529495</p>
+    <p class="subtitle">
+        <a href="index.html" style="color:#60a5fa;">Início</a> |
+        <a href="exercicio3.html" style="color:#60a5fa;">Aula 2 - Exercício 3 (OOP)</a>
+    </p>
+
+    <div class="grid">
+        <section class="panel">
+            <h2>Paciente <span class="badge">CRUD com telas</span></h2>
+            <p style="color:#94a3b8;">Total cadastrado: <strong id="totalPacientes" class="stat-number">...</strong></p>
+
+            <div class="row">
+                <div><a class="btn-primary" href="paciente-listar.html" style="text-decoration:none;display:inline-block;">Listar</a></div>
+                <div><a class="btn-secondary" href="paciente-incluir.html" style="text-decoration:none;display:inline-block;">Incluir</a></div>
+            </div>
+
+            <p style="color:#94a3b8;margin-top:12px;font-size:12px;">
+                Campos: nome, cpf, telefone, email, numeroCarteirinha, dataNascimento.
+            </p>
+        </section>
+
+        <section class="panel">
+            <h2>Médico <span class="badge">CRUD com telas</span></h2>
+            <p style="color:#94a3b8;">Total cadastrado: <strong id="totalMedicos" class="stat-number">...</strong></p>
+
+            <div class="row">
+                <div><a class="btn-primary" href="medico-listar.html" style="text-decoration:none;display:inline-block;">Listar</a></div>
+                <div><a class="btn-secondary" href="medico-incluir.html" style="text-decoration:none;display:inline-block;">Incluir</a></div>
+            </div>
+
+            <p style="color:#94a3b8;margin-top:12px;font-size:12px;">
+                Campos: nome, crm, especialidade, telefone.
+            </p>
+        </section>
+    </div>
+
+    <section class="panel" style="margin-top:24px;">
+        <h2>Sobre esta tela <span class="badge">Aula 2 - Exercício 4</span></h2>
+        <p style="color:#94a3b8;">
+            Esta página reúne o que foi desenvolvido na Aula 3: telas de Listar,
+            Incluir, Alterar e Excluir para as classes <strong>Paciente</strong> e
+            <strong>Médico</strong>, todas se comunicando com o Backend (Spring Boot)
+            através da API <strong>Fetch</strong> do JavaScript, consumindo os
+            endpoints REST criados no Exercício 2
+            (<code>/api/planosaude/paciente</code> e
+            <code>/api/planosaude/medico</code>). Os números acima já são
+            carregados via <code>fetch()</code> assim que esta página abre.
+        </p>
+    </section>
+</main>
+
+<script src="aula3.js"></script>
+</body>
+</html>

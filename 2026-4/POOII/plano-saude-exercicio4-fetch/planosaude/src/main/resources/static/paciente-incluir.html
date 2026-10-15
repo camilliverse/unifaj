@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Incluir Paciente</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topo">
+    <h1>Sistema Plano de Saude</h1>
+    <div class="aluno" id="dados-aluno">Carregando dados do aluno...</div>
+</header>
+
+<nav class="menu">
+    <a href="index.html">Inicio</a>
+    <a href="medico-listar.html">Medicos</a>
+    <a href="paciente-listar.html">Pacientes</a>
+</nav>
+
+<main>
+    <h2>Incluir Paciente</h2>
+
+    <div id="mensagem"></div>
+
+    <form id="form-paciente">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" required>
+
+        <label for="cpf">CPF</label>
+        <input type="text" id="cpf" required>
+
+        <label for="dataNascimento">Data de Nascimento</label>
+        <input type="date" id="dataNascimento" required>
+
+        <label for="telefone">Telefone</label>
+        <input type="text" id="telefone" required>
+
+        <div class="acoes">
+            <button type="submit" class="btn">Salvar</button>
+            <a class="btn excluir" href="paciente-listar.html">Cancelar</a>
+        </div>
+    </form>
+</main>
+
+<script src="js/aluno.js"></script>
+<script src="js/api.js"></script>
+<script src="js/paciente.js"></script>
+<script>
+    function exibirMensagem(texto, tipo) {
+        const div = document.getElementById("mensagem");
+        div.textContent = texto;
+        div.className = tipo;
+    }
+
+    document.getElementById("form-paciente").addEventListener("submit", async (evento) => {
+        evento.preventDefault();
+
+        const novoPaciente = {
+            nome: document.getElementById("nome").value,
+            cpf: document.getElementById("cpf").value,
+            dataNascimento: document.getElementById("dataNascimento").value,
+            telefone: document.getElementById("telefone").value
+        };
+
+        try {
+            await incluirPaciente(novoPaciente); // FETCH POST /api/pacientes
+            exibirMensagem("Paciente incluido com sucesso! Redirecionando...", "sucesso");
+            setTimeout(() => window.location.href = "paciente-listar.html", 1200);
+        } catch (erro) {
+            exibirMensagem("Erro ao incluir paciente: " + erro.message, "erro");
+        }
+    });
+</script>
+</body>
+</html>

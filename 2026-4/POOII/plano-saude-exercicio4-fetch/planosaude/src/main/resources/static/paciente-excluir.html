@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Excluir Paciente</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topo">
+    <h1>Sistema Plano de Saude</h1>
+    <div class="aluno" id="dados-aluno">Carregando dados do aluno...</div>
+</header>
+
+<nav class="menu">
+    <a href="index.html">Inicio</a>
+    <a href="medico-listar.html">Medicos</a>
+    <a href="paciente-listar.html">Pacientes</a>
+</nav>
+
+<main>
+    <h2>Excluir Paciente</h2>
+
+    <div id="mensagem"></div>
+
+    <p>Confira os dados abaixo antes de confirmar a exclusao:</p>
+
+    <form id="form-paciente">
+        <label for="id">ID</label>
+        <input type="text" id="id" disabled>
+
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" disabled>
+
+        <label for="cpf">CPF</label>
+        <input type="text" id="cpf" disabled>
+
+        <label for="dataNascimento">Data de Nascimento</label>
+        <input type="date" id="dataNascimento" disabled>
+
+        <label for="telefone">Telefone</label>
+        <input type="text" id="telefone" disabled>
+
+        <div class="acoes">
+            <button type="button" id="btn-excluir" class="btn excluir">Confirmar Exclusao</button>
+            <a class="btn" href="paciente-listar.html">Cancelar</a>
+        </div>
+    </form>
+</main>
+
+<script src="js/aluno.js"></script>
+<script src="js/api.js"></script>
+<script src="js/paciente.js"></script>
+<script>
+    function exibirMensagem(texto, tipo) {
+        const div = document.getElementById("mensagem");
+        div.textContent = texto;
+        div.className = tipo;
+    }
+
+    const parametros = new URLSearchParams(window.location.search);
+    const idPaciente = parametros.get("id");
+
+    async function carregarDados() {
+        try {
+            const paciente = await buscarPacientePorId(idPaciente); // FETCH GET /api/pacientes/{id}
+            document.getElementById("id").value = paciente.id;
+            document.getElementById("nome").value = paciente.nome;
+            document.getElementById("cpf").value = paciente.cpf;
+            document.getElementById("dataNascimento").value = paciente.dataNascimento;
+            document.getElementById("telefone").value = paciente.telefone;
+        } catch (erro) {
+            exibirMensagem("Erro ao carregar paciente: " + erro.message, "erro");
+        }
+    }
+
+    document.getElementById("btn-excluir").addEventListener("click", async () => {
+        try {
+            await excluirPaciente(idPaciente); // FETCH DELETE /api/pacientes/{id}
+            exibirMensagem("Paciente excluido com sucesso! Redirecionando...", "sucesso");
+            setTimeout(() => window.location.href = "paciente-listar.html", 1200);
+        } catch (erro) {
+            exibirMensagem("Erro ao excluir paciente: " + erro.message, "erro");
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", carregarDados);
+</script>
+</body>
+</html>

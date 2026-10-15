@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Listar Medicos</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topo">
+    <h1>Sistema Plano de Saude</h1>
+    <div class="aluno" id="dados-aluno">Carregando dados do aluno...</div>
+</header>
+
+<nav class="menu">
+    <a href="index.html">Inicio</a>
+    <a href="medico-listar.html">Medicos</a>
+    <a href="paciente-listar.html">Pacientes</a>
+</nav>
+
+<main>
+    <h2>Listagem de Medicos</h2>
+    <a class="btn" href="medico-incluir.html">+ Incluir novo Medico</a>
+
+    <div id="mensagem"></div>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>CRM</th>
+            <th>Especialidade</th>
+            <th>Telefone</th>
+            <th>Acoes</th>
+        </tr>
+        </thead>
+        <tbody id="corpo-tabela">
+        <!-- Preenchido via JavaScript / Fetch -->
+        </tbody>
+    </table>
+</main>
+
+<script src="js/aluno.js"></script>
+<script src="js/api.js"></script>
+<script src="js/medico.js"></script>
+<script>
+    function exibirMensagem(texto, tipo) {
+        const div = document.getElementById("mensagem");
+        div.textContent = texto;
+        div.className = tipo;
+    }
+
+    async function carregarTabela() {
+        try {
+            const medicos = await listarMedicos(); // FETCH GET /api/medicos
+            const corpo = document.getElementById("corpo-tabela");
+            corpo.innerHTML = "";
+
+            if (medicos.length === 0) {
+                corpo.innerHTML = `<tr><td colspan="6">Nenhum medico cadastrado.</td></tr>`;
+                return;
+            }
+
+            medicos.forEach(medico => {
+                const linha = document.createElement("tr");
+                linha.innerHTML = `
+                    <td>${medico.id}</td>
+                    <td>${medico.nome}</td>
+                    <td>${medico.crm}</td>
+                    <td>${medico.especialidade}</td>
+                    <td>${medico.telefone}</td>
+                    <td>
+                        <a class="btn alterar" href="medico-alterar.html?id=${medico.id}">Alterar</a>
+                        <a class="btn excluir" href="medico-excluir.html?id=${medico.id}">Excluir</a>
+                    </td>
+                `;
+                corpo.appendChild(linha);
+            });
+        } catch (erro) {
+            exibirMensagem("Erro ao carregar medicos: " + erro.message, "erro");
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", carregarTabela);
+</script>
+</body>
+</html>

@@ -20,12 +20,13 @@ public class ConsultaService {
 
     public Consulta buscarPorId(Long id) {
         return consultaRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Consulta nao encontrada com id: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "Consulta nao encontrada com id: " + id));
     }
 
     public Consulta cadastrar(Consulta consulta) {
         consulta.setId(null);
-        consulta.agendar(); // toda consulta nova nasce com status AGENDADA
+        consulta.agendar();
         return consultaRepository.save(consulta);
     }
 
@@ -36,6 +37,7 @@ public class ConsultaService {
         existente.setHorario(dadosAtualizados.getHorario());
         existente.setPaciente(dadosAtualizados.getPaciente());
         existente.setMedico(dadosAtualizados.getMedico());
+
         if (dadosAtualizados.getStatus() != null) {
             existente.setStatus(dadosAtualizados.getStatus());
         }
@@ -50,7 +52,6 @@ public class ConsultaService {
     }
 
     public void remover(Long id) {
-        Consulta existente = buscarPorId(id);
-        consultaRepository.delete(existente);
+        consultaRepository.delete(buscarPorId(id));
     }
 }

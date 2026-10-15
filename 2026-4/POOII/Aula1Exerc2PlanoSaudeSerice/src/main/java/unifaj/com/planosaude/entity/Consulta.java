@@ -1,5 +1,6 @@
 package unifaj.com.planosaude.entity;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,6 +12,8 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import unifaj.com.planosaude.entity.Agendavel;
+import unifaj.com.planosaude.entity.Paciente;
 
 @Entity
 @Data

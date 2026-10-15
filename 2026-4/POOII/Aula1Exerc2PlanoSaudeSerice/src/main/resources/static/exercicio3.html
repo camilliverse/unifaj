@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plano de Saúde — Exercício 3 (JS Orientado a Objetos)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>Plano de Saúde — Exercício 3 (JavaScript Orientado a Objetos)</h1>
+  <p class="subtitle">
+    Aluna: Camilli dos Santos | RA: 12529495
+  </p>
+
+  <div class="grid">
+
+    <section class="panel">
+      <h2>Alocação das Classes <span class="badge">14 classes</span></h2>
+      <p style="color:#94a3b8; font-size:13px;">
+        Cria com <code>new</code> um objeto de cada uma das 14 classes do domínio,
+        usando valores fixos no código (equivalente a <code>let proj1 = new Projeto(...)</code>).
+      </p>
+      <button class="btn-primary" onclick="executarAlocacaoFixa()">Executar alocação das classes (new)</button>
+      <h3>Resultado</h3>
+      <pre class="out" id="outAlocacaoFixa">-</pre>
+    </section>
+
+    <!-- ================= PAINEL 2: Paciente via input ================= -->
+    <section class="panel">
+      <h2>Criar Paciente <span class="badge">via input</span></h2>
+
+      <div class="row">
+        <div><label for="pacNome">Nome</label><input id="pacNome" placeholder="Ex: João da Silva"></div>
+        <div><label for="pacCpf">CPF</label><input id="pacCpf" placeholder="000.000.000-00"></div>
+      </div>
+
+      <div class="row">
+        <div><label for="pacNascimento">Data de nascimento</label><input id="pacNascimento" type="date"></div>
+        <div><label for="pacCarteirinha">Nº carteirinha</label><input id="pacCarteirinha" placeholder="PL-00000"></div>
+      </div>
+
+      <div class="row">
+        <div><label for="pacCidade">Cidade</label><input id="pacCidade" placeholder="Jundiaí"></div>
+        <div><label for="pacUf">UF</label><input id="pacUf" placeholder="SP" maxlength="2"></div>
+      </div>
+
+      <div class="row">
+        <div><label for="pacOperadora">Operadora do plano</label><input id="pacOperadora" placeholder="Unifaj Saúde"></div>
+        <div><label for="pacCategoria">Categoria do plano</label><input id="pacCategoria" placeholder="Básico / Intermediário / Premium"></div>
+      </div>
+
+      <button class="btn-success" onclick="criarPacienteViaInput()">Criar Paciente (new Paciente)</button>
+
+      <h3>Resultado</h3>
+      <pre class="out" id="outPacienteInput">-</pre>
+    </section>
+
+    <section class="panel">
+      <h2>Marcar Consulta <span class="badge">via input</span></h2>
+
+      <p style="color:#94a3b8; font-size:13px;">
+        Usa o último Paciente criado no painel ao lado e um Médico fixo já alocado (Dra. Ana Beatriz Souza).
+        Crie o paciente primeiro.
+      </p>
+
+      <div class="row">
+        <div><label for="conData">Data</label><input id="conData" type="date"></div>
+        <div><label for="conHorario">Horário</label><input id="conHorario" type="time"></div>
+      </div>
+
+      <div class="row">
+        <div>
+          <label for="conTipo">Tipo</label>
+          <select id="conTipo" style="width:100%; margin-top:2px; padding:7px 8px; border-radius:6px; background:#111827; color:#e2e8f0; border:1px solid rgba(255,255,255,.15);">
+            <option value="Primeira consulta">Primeira consulta</option>
+            <option value="Retorno">Retorno</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="btn-primary" onclick="criarConsultaViaInput()">Marcar Consulta (new Consulta)</button>
+
+      <h3>Resultado</h3>
+      <pre class="out" id="outConsultaInput">-</pre>
+    </section>
+
+  </div>
+</main>
+
+<script src="exercicio3.js"></script>
+<script>
+  let ultimoPacienteCriado = null;
+
+  const enderecoMedicoFixo = new Endereco("Av. Brasil", "500", "Campinas", "SP", "13010-000");
+  const especialidadeFixa = new Especialidade("Cardiologia", "CRM-SP 12345");
+  const medicoFixo = new Medico("Ana Beatriz Souza", "222.333.444-55", "1980-03-15", enderecoMedicoFixo, "CRM-SP 111222", especialidadeFixa);
+
+  function mostrar(id, texto) {
+    document.getElementById(id).textContent = texto;
+  }
+
+  function executarAlocacaoFixa() {
+    const objetos = alocarClassesComValoresFixos();
+
+    const linhas = [
+      "== Objetos alocados com new e valores fixos ==",
+      "Endereco 1: " + objetos.endereco1,
+      "Especialidade: " + objetos.cardiologia,
+      "PlanoSaude: " + objetos.plano1,
+      "Paciente: " + objetos.paciente1.apresentar(),
+      "Medico: " + objetos.medico1.apresentar(),
+      "Fisioterapeuta: " + objetos.fisio1.apresentar(),
+      "Hospital: " + objetos.hospital1,
+      "Clinica: " + objetos.clinica1,
+      "Laboratorio: " + objetos.laboratorio1,
+      "Consulta (1ª vez): " + objetos.consulta1,
+      "Consulta (retorno): " + objetos.consultaRetorno,
+      "Exame: " + objetos.exame1,
+      "Internacao: " + objetos.internacao1,
+      "Reavaliação médica: " + objetos.reavaliacao,
+      "Sessão de fisioterapia: " + objetos.sessaoFisio
+    ];
+
+    mostrar("outAlocacaoFixa", linhas.join("\n"));
+  }
+
+  function criarPacienteViaInput() {
+    const nome = document.getElementById("pacNome").value || "Sem nome";
+    const cpf = document.getElementById("pacCpf").value || "000.000.000-00";
+    const nascimento = document.getElementById("pacNascimento").value || "2000-01-01";
+    const carteirinha = document.getElementById("pacCarteirinha").value || "PL-00000";
+    const cidade = document.getElementById("pacCidade").value || "Cidade não informada";
+    const uf = document.getElementById("pacUf").value || "SP";
+    const operadora = document.getElementById("pacOperadora").value || "Operadora não informada";
+    const categoria = document.getElementById("pacCategoria").value || "Básico";
+
+    const endereco = new Endereco("Endereço informado pelo usuário", "s/n", cidade, uf, "00000-000");
+    const plano = new PlanoSaude(operadora, "ANS-000000", categoria);
+    const paciente = new Paciente(nome, cpf, nascimento, endereco, carteirinha, plano);
+
+    ultimoPacienteCriado = paciente;
+
+    mostrar("outPacienteInput", "Objeto Paciente criado com new:\n" + paciente.apresentar());
+  }
+
+  function criarConsultaViaInput() {
+    if (!ultimoPacienteCriado) {
+      mostrar("outConsultaInput", "Crie um Paciente no painel ao lado antes de marcar a consulta.");
+      return;
+    }
+
+    const data = document.getElementById("conData").value || new Date().toISOString().slice(0, 10);
+    const horario = document.getElementById("conHorario").value || "08:00";
+    const tipo = document.getElementById("conTipo").value;
+
+    const consulta = new Consulta(data, horario, ultimoPacienteCriado, medicoFixo, tipo);
+    ultimoPacienteCriado.marcarConsulta(consulta);
+
+    mostrar("outConsultaInput", "Objeto Consulta criado com new:\n" + consulta.toString());
+  }
+</script>
+</body>
+</html>

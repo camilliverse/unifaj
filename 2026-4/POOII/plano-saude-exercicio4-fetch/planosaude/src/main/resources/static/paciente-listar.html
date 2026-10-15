@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Listar Pacientes</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topo">
+    <h1>Sistema Plano de Saude</h1>
+    <div class="aluno" id="dados-aluno">Carregando dados do aluno...</div>
+</header>
+
+<nav class="menu">
+    <a href="index.html">Inicio</a>
+    <a href="medico-listar.html">Medicos</a>
+    <a href="paciente-listar.html">Pacientes</a>
+</nav>
+
+<main>
+    <h2>Listagem de Pacientes</h2>
+    <a class="btn" href="paciente-incluir.html">+ Incluir novo Paciente</a>
+
+    <div id="mensagem"></div>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Data Nascimento</th>
+            <th>Telefone</th>
+            <th>Acoes</th>
+        </tr>
+        </thead>
+        <tbody id="corpo-tabela">
+        <!-- Preenchido via JavaScript / Fetch -->
+        </tbody>
+    </table>
+</main>
+
+<script src="js/aluno.js"></script>
+<script src="js/api.js"></script>
+<script src="js/paciente.js"></script>
+<script>
+    function exibirMensagem(texto, tipo) {
+        const div = document.getElementById("mensagem");
+        div.textContent = texto;
+        div.className = tipo;
+    }
+
+    async function carregarTabela() {
+        try {
+            const pacientes = await listarPacientes(); // FETCH GET /api/pacientes
+            const corpo = document.getElementById("corpo-tabela");
+            corpo.innerHTML = "";
+
+            if (pacientes.length === 0) {
+                corpo.innerHTML = `<tr><td colspan="6">Nenhum paciente cadastrado.</td></tr>`;
+                return;
+            }
+
+            pacientes.forEach(paciente => {
+                const linha = document.createElement("tr");
+                linha.innerHTML = `
+                    <td>${paciente.id}</td>
+                    <td>${paciente.nome}</td>
+                    <td>${paciente.cpf}</td>
+                    <td>${paciente.dataNascimento}</td>
+                    <td>${paciente.telefone}</td>
+                    <td>
+                        <a class="btn alterar" href="paciente-alterar.html?id=${paciente.id}">Alterar</a>
+                        <a class="btn excluir" href="paciente-excluir.html?id=${paciente.id}">Excluir</a>
+                    </td>
+                `;
+                corpo.appendChild(linha);
+            });
+        } catch (erro) {
+            exibirMensagem("Erro ao carregar pacientes: " + erro.message, "erro");
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", carregarTabela);
+</script>
+</body>
+</html>

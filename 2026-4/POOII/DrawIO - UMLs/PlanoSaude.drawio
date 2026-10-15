@@ -1,6 +1,6 @@
 <mxfile host="Electron">
   <diagram name="Page-1" id="s3sNMaYBqqA2IAx2doDn">
-    <mxGraphModel dx="1880" dy="1870" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2870" dy="2301" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -170,7 +170,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="NBKdg0aYf3CTo8ck0KbC-45" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#647687;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fontColor=#ffffff;strokeColor=#314354;" value="Clinica" vertex="1">
-          <mxGeometry height="104" width="140" x="-100" y="410" as="geometry" />
+          <mxGeometry height="104" width="140" x="-50" y="400" as="geometry" />
         </mxCell>
         <mxCell id="NBKdg0aYf3CTo8ck0KbC-71" parent="NBKdg0aYf3CTo8ck0KbC-45" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ id: long" vertex="1">
           <mxGeometry height="26" width="140" y="26" as="geometry" />
@@ -248,6 +248,21 @@
         </mxCell>
         <mxCell id="NBKdg0aYf3CTo8ck0KbC-94" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Camilli Santos | Ra- 12529495" vertex="1">
           <mxGeometry height="30" width="220" x="-440" y="-260" as="geometry" />
+        </mxCell>
+        <mxCell id="p9CYA6IzEgABLSIMcygc-5" edge="1" parent="1" source="p9CYA6IzEgABLSIMcygc-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="NBKdg0aYf3CTo8ck0KbC-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p9CYA6IzEgABLSIMcygc-1" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#647687;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fontColor=#ffffff;strokeColor=#314354;" value="Beneficiario" vertex="1">
+          <mxGeometry height="104" width="140" x="-270" y="286" as="geometry" />
+        </mxCell>
+        <mxCell id="p9CYA6IzEgABLSIMcygc-2" parent="p9CYA6IzEgABLSIMcygc-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ id: long" vertex="1">
+          <mxGeometry height="26" width="140" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="p9CYA6IzEgABLSIMcygc-3" parent="p9CYA6IzEgABLSIMcygc-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ nome: string" vertex="1">
+          <mxGeometry height="26" width="140" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="p9CYA6IzEgABLSIMcygc-4" parent="p9CYA6IzEgABLSIMcygc-1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" value="+ cpf: int" vertex="1">
+          <mxGeometry height="26" width="140" y="78" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
