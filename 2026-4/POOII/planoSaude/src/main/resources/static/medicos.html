@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><title>Médicos</title><style>body{font-family:sans-serif;max-width:900px;margin:20px auto;padding:0 12px}header{background:#0a5;color:#fff;padding:12px;border-radius:6px}form{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}label{display:flex;flex-direction:column;font-size:14px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccc;padding:6px;text-align:left}th{background:#eee}nav a{margin-right:12px}</style></head>
+<body><header><h2>Plano de Saúde</h2><div>Aluno: SEU NOME AQUI &mdash; RA: SEU RA AQUI</div></header><nav><p><a href="index.html">Pacientes</a><a href="medicos.html">Médicos</a></p></nav>
+<h3>Médicos</h3>
+<form id="form"></form>
+<table><thead id="thead"></thead><tbody id="tbody"></tbody></table>
+<script>window.CFG = {url:"/api/medicos",campos:[{nome:"nome",rotulo:"Nome"},{nome:"crm",rotulo:"CRM"},{nome:"especialidade",rotulo:"Especialidade"}]};</script>
+<script src="crud.js"></script>
+</body></html>

@@ -1,0 +1,19 @@
+body{font-family:Arial,sans-serif;margin:0;background:#f4f7fa;color:#223}
+header{background:#0b6e99;color:#fff;padding:16px 24px}
+header h1{margin:0 0 4px;font-size:22px}
+header .aluno{font-weight:bold;font-size:15px}
+nav{margin-top:10px}
+nav a{color:#fff;margin-right:16px;text-decoration:none;border-bottom:1px solid transparent}
+nav a:hover{border-color:#fff}
+main{max-width:900px;margin:24px auto;padding:0 16px}
+table{width:100%;border-collapse:collapse;background:#fff}
+th,td{padding:8px 10px;border-bottom:1px solid #dde;text-align:left}
+th{background:#e3eef4}
+.btn{display:inline-block;padding:6px 12px;border:0;border-radius:4px;background:#0b6e99;color:#fff;cursor:pointer;text-decoration:none;font-size:14px}
+.btn.danger{background:#c0392b}
+.btn.gray{background:#777}
+form{background:#fff;padding:20px;border-radius:6px;max-width:500px}
+label{display:block;margin-top:12px;font-weight:bold}
+input{width:100%;padding:8px;box-sizing:border-box;margin-top:4px}
+.acoes{margin-top:18px}
+#msg{margin:12px 0;color:#c0392b}
