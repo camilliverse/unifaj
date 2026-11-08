@@ -1,7 +1,6 @@
 create database if not exists ong_projeto;
 use ong_projeto;
 
-
  -- 1 - criar tabelas
 
 create table endereco (
@@ -149,7 +148,7 @@ create table log_ficha (
 
 -- 2- inserindo valores
 
-insert into endereco (rua, numero, bairro, cidade, cep) VALUES
+insert into endereco (rua, numero, bairro, cidade, cep) values
 ('Rua das Flores', '100', 'Centro', 'Sumaré', '13170-000'),
 ('Rua Azul', '200', 'Matão', 'Sumaré', '13170-001'),
 ('Rua Verde', '300', 'Nova Veneza', 'Sumaré', '13170-002'),
@@ -158,64 +157,64 @@ insert into endereco (rua, numero, bairro, cidade, cep) VALUES
 ('Rua do Sol', '600', 'Matão', 'Sumaré', '13170-005'),
 ('Rua das Palmeiras', '700', 'Nova Veneza', 'Sumaré', '13170-006');
 
-insert into  ong (nome) VALUES
+insert into  ong (nome) values
 ('ONG Criança Feliz'),
 ('ONG Novo Amanhã');
 
 insert into  unidade
-(identificacao, tipoAtendimento, publicoAlvo, id_ong) VALUES
+(identificacao, tipoAtendimento, publicoAlvo, id_ong) values
 ('Unidade Central', 'Atendimento pediátrico', 'Crianças de 0 a 6 anos', 1),
 ('Unidade Norte', 'Acompanhamento infantil', 'Crianças de 7 a 12 anos', 1),
 ('Unidade Sul', 'Atendimento psicológico', 'Crianças e adolescentes', 2);
 
-insert into formacao (nome, diploma) VALUES
+insert into formacao (nome, diploma) values
 ('Enfermagem', 'Bacharelado'),
 ('Medicina', 'Bacharelado'),
 ('Psicologia', 'Bacharelado'),
 ('Fisioterapia', 'Bacharelado');
 
 insert into  profissional
-(nome, CPF, dataNascimento, telefone, id_endereco) VALUES
+(nome, CPF, dataNascimento, telefone, id_endereco) values
 ('Ana Souza', '111.111.111-11', '1990-05-10', '19999990001', 1),
 ('Carlos Lima', '222.222.222-22', '1985-08-15', '19999990002', 2),
 ('Mariana Alves', '333.333.333-33', '1992-03-20', '19999990003', 3);
 
-insert into  profissional_formacao VALUES
+insert into  profissional_formacao values
 (1, 1),
 (2, 2),
 (3, 3),
 (3, 4);
 
-insert into  profissional_ong VALUES
+insert into  profissional_ong values
 (1, 1, 'CLT', 'Enfermeira'),
 (2, 1, 'CLT', 'Médico'),
 (3, 2, 'Voluntário', 'Psicóloga');
 
-insert into  unidade_profissional VALUES
+insert into  unidade_profissional values
 (1, 1),
 (1, 2),
 (2, 3);
 
-insert into  usuario (nome, senha, id_profissional) VALUES
+insert into  usuario (nome, senha, id_profissional) values
 ('ana.souza', 'senha123', 1),
 ('carlos.lima', 'senha456', 2),
 ('mariana.alves', 'senha789', 3);
 
 insert into crianca
-(nome, dataNascimento, nomePai, nomeMae, telefone, id_endereco) VALUES
+(nome, dataNascimento, nomePai, nomeMae, telefone, id_endereco) values
 ('Lucas Silva', '2019-04-10', 'João Silva', 'Maria Silva', '19988880001', 4),
 ('Pedro Santos', '2018-06-15', 'Paulo Santos', 'Ana Santos', '19988880002', 5),
 ('Julia Oliveira', '2020-02-20', 'Carlos Oliveira', 'Fernanda Oliveira', '19988880003', 6),
 ('Beatriz Costa', '2017-09-12', 'Roberto Costa', 'Camila Costa', '19988880004', 7);
 
-insert into  comportamento (descricao) VALUES
+insert into  comportamento (descricao) values
 ('Calmo e participativo'),
 ('Agitado'),
 ('Tímido'),
 ('Comunicativo');
 
 insert into agendamento
-(data, horario, situacao, id_crianca) VALUES
+(data, horario, situacao, id_crianca) values
 ('2026-11-10', '08:00:00', 'Realizado', 1),
 ('2026-11-17', '09:00:00', 'Realizado', 1),
 ('2026-11-10', '10:00:00', 'Realizado', 2),
@@ -226,7 +225,7 @@ insert into  ficha_atendimento
 (dataAtendimento, altura, peso, grauMobilidade,
  desenvolvimentoCog, obsEnfermeira, id_agendamento,
  id_enfermeira, id_profissionalSaude, id_comportamento)
-VALUES
+values
 ('2026-11-10', 1.10, 20.5, 'Normal', 'Adequado',
  'Primeiro atendimento', 1, 1, 2, 1),
 
@@ -240,351 +239,287 @@ VALUES
  'Em acompanhamento', 'Necessita acompanhamento', 4, 1, 3, 3);
 
 
--- =====================================================
--- 3) CONSULTA DE 2 TABELAS (JOIN)
--- =====================================================
+-- 3 - consulta
 
-SELECT
-    crianca.nome AS crianca,
+select
+    crianca.nome as crianca,
     agendamento.data,
     agendamento.horario
-FROM crianca
-INNER JOIN agendamento
-    ON crianca.id = agendamento.id_crianca;
+from crianca
+inner join agendamento
+    on crianca.id = agendamento.id_crianca;
 
--- Explicação:
--- Relaciona as tabelas crianca e agendamento.
--- Apresenta o nome da criança, a data e o horário
--- dos seus agendamentos.
+-- explicacao:
+-- relaciona as tabelas crianca e agendamento apresenta o nome da criança, a data e o horário dos seus agendamentos.
 
+-- 4 consulta tabelas join
 
--- =====================================================
--- 4) CONSULTA DE 3 TABELAS (JOIN)
--- =====================================================
-
-SELECT
-    crianca.nome AS crianca,
+select
+    crianca.nome as crianca,
     agendamento.data,
     ficha_atendimento.peso,
     ficha_atendimento.altura
-FROM crianca
-INNER JOIN agendamento
+from crianca
+inner join  agendamento
     ON crianca.id = agendamento.id_crianca
-INNER JOIN ficha_atendimento
-    ON agendamento.id = ficha_atendimento.id_agendamento;
+inner join  ficha_atendimento
+    on agendamento.id = ficha_atendimento.id_agendamento;
 
--- Explicação:
--- Relaciona crianca, agendamento e ficha_atendimento.
--- Apresenta a criança, a data do atendimento,
--- o peso e a altura registrados na ficha.
+-- explicacao:
+-- relaciona crianca, agendamento e ficha_atendimento apresenta a criança, a data do atendimento, o peso e a altura registrados na ficha.
 
+-- 5 - union
 
--- =====================================================
--- 5) UNION
--- =====================================================
+select nome as pessoa
+from crianca
 
-SELECT nome AS pessoa
-FROM crianca
+union
 
-UNION
+select nome as pessoa
+from profissional;
 
-SELECT nome AS pessoa
-FROM profissional;
-
--- Explicação:
+-- explicacao:
 -- Une os nomes cadastrados nas tabelas crianca
 -- e profissional em um único resultado.
 -- O UNION elimina os nomes duplicados.
 
+-- 6 interset
 
--- =====================================================
--- 6) INTERSECT
--- =====================================================
-
-SELECT id, nome
-FROM crianca
-WHERE id IN (
-    SELECT id_crianca
-    FROM agendamento
+select id, nome
+from crianca
+where id in (
+    select id_crianca
+    from agendamento
 )
 
-INTERSECT
+intersect
 
-SELECT id, nome
-FROM crianca
-WHERE id IN (
-    SELECT agendamento.id_crianca
-    FROM agendamento
-    INNER JOIN ficha_atendimento
-        ON agendamento.id = ficha_atendimento.id_agendamento
+select id, nome
+from crianca
+where id in (
+    select agendamento.id_crianca
+    from agendamento
+    inner join ficha_atendimento
+        on agendamento.id = ficha_atendimento.id_agendamento
 );
 
--- Explicação:
--- Identifica as crianças que possuem agendamento
--- e também possuem ficha de atendimento registrada.
--- O INTERSECT retorna somente os registros presentes
--- nos dois resultados.
+-- explicacao:
+-- identifica as crianças que possuem agendamento e também possuem ficha de atendimento registrada O INTERSECT retorna somente os registros presentes nos dois resultados.
 
+-- 7 except
 
--- =====================================================
--- 7) EXCEPT
--- =====================================================
+select id, nome
+from crianca
 
-SELECT id, nome
-FROM crianca
+except
 
-EXCEPT
+select crianca.id, crianca.nome
+from crianca
+inner join agendamento
+    on crianca.id = agendamento.id_crianca
+inner join ficha_atendimento
+    on agendamento.id = ficha_atendimento.id_agendamento;
 
-SELECT crianca.id, crianca.nome
-FROM crianca
-INNER JOIN agendamento
-    ON crianca.id = agendamento.id_crianca
-INNER JOIN ficha_atendimento
-    ON agendamento.id = ficha_atendimento.id_agendamento;
+-- explicacao:
+-- Identifica as crianças que ainda não possuem nenhuma ficha de atendimento registrada O EXCEPT retorna os registros da primeira consulta que não aparecem na segunda consulta.
 
--- Explicação:
--- Identifica as crianças que ainda não possuem
--- nenhuma ficha de atendimento registrada.
--- O EXCEPT retorna os registros da primeira consulta
--- que não aparecem na segunda consulta.
+-- 8 - case
 
-
--- =====================================================
--- 8) CASE
--- =====================================================
-
-SELECT
+select
     nome,
     dataNascimento,
 
-    CASE
-        WHEN TIMESTAMPDIFF(YEAR, dataNascimento, CURDATE()) <= 3
-            THEN 'Primeira infância'
+    case
+        when timestampdiff(year, dataNascimento, CURDATE()) <= 3
+            then 'Primeira infância'
 
-        WHEN TIMESTAMPDIFF(YEAR, dataNascimento, CURDATE()) <= 6
-            THEN 'Infância'
+        when timestampdiff(year, dataNascimento, CURDATE()) <= 6
+            then 'Infância'
 
-        ELSE 'Acima de 6 anos'
-    END AS faixaEtaria
+        else 'Acima de 6 anos'
+    end as faixaEtaria
 
-FROM crianca;
+from crianca;
 
--- Explicação:
--- Utiliza o CASE para classificar as crianças
--- de acordo com a idade calculada.
--- Cada condição apresenta uma classificação diferente.
+-- explicacao:
+-- CASE para classificar as crianças de acordo com a idade calculada cada condição apresenta uma classificação diferente.
 
+-- 9 - count
 
--- =====================================================
--- 9) COUNT
--- =====================================================
+select
+    COUNT(*) as totalCriancas
+from crianca;
 
-SELECT
-    COUNT(*) AS totalCriancas
-FROM crianca;
-
--- Explicação:
--- Utiliza COUNT para contar a quantidade total
--- de crianças cadastradas no sistema.
+-- explicao:
+-- COUNT para contar a quantidade total de crianças cadastradas no sistema.
 
 
--- =====================================================
--- 10) HAVING
--- =====================================================
+-- 10 - having
 
-SELECT
+select
     crianca.nome,
-    COUNT(agendamento.id) AS totalAgendamentos
+    COUNT(agendamento.id) as totalAgendamentos
 
-FROM crianca
+from crianca
 
-INNER JOIN agendamento
-    ON crianca.id = agendamento.id_crianca
+inner join agendamento
+    on crianca.id = agendamento.id_crianca
 
-GROUP BY crianca.id, crianca.nome
+group by crianca.id, crianca.nome
 
-HAVING COUNT(agendamento.id) >= 2;
+having COUNT(agendamento.id) >= 2;
 
--- Explicação:
--- Agrupa os agendamentos por criança.
--- O HAVING filtra os grupos e apresenta somente
--- as crianças que possuem dois ou mais agendamentos.
+-- explicao:
+-- Agrupa os agendamentos por criança HAVING filtra os grupos e apresenta somente as crianças que possuem dois ou mais agendamentos.
 
+-- 11 - subquery
 
--- =====================================================
--- 11) SUBQUERY
--- =====================================================
+select nome
+from crianca
 
-SELECT nome
-FROM crianca
+where id in (
 
-WHERE id IN (
-
-    SELECT id_crianca
-    FROM agendamento
-    GROUP BY id_crianca
-    HAVING COUNT(*) >= 2
-
+    select id_crianca
+    from agendamento
+    group by id_crianca
+    having COUNT(*) >= 2
 );
 
--- Explicação:
--- A consulta interna identifica as crianças que possuem
--- dois ou mais agendamentos.
--- A consulta externa apresenta os nomes dessas crianças.
+-- explicao:
+-- A consulta interna identifica as crianças que possuem dois ou mais agendamentos consulta externa apresenta os nomes dessas crianças.
 
+-- 12 - view
 
--- =====================================================
--- 12) VIEW
--- =====================================================
+create view view_historico_atendimentos as
 
-CREATE VIEW view_historico_atendimentos AS
-
-SELECT
-    crianca.nome AS crianca,
+select
+    crianca.nome as crianca,
     agendamento.data,
     agendamento.horario,
-    profissional.nome AS profissionalSaude,
+    profissional.nome as profissionalSaude,
     ficha_atendimento.peso,
     ficha_atendimento.altura,
     ficha_atendimento.grauMobilidade,
     ficha_atendimento.desenvolvimentoCog
 
-FROM crianca
+from crianca
 
-INNER JOIN agendamento
-    ON crianca.id = agendamento.id_crianca
+inner join agendamento
+    on crianca.id = agendamento.id_crianca
 
-INNER JOIN ficha_atendimento
-    ON agendamento.id = ficha_atendimento.id_agendamento
+inner join ficha_atendimento
+    on agendamento.id = ficha_atendimento.id_agendamento
 
-INNER JOIN profissional
-    ON ficha_atendimento.id_profissionalSaude = profissional.id;
+inner join profissional
+    on ficha_atendimento.id_profissionalSaude = profissional.id;
 
--- Consultar a VIEW:
-SELECT * FROM view_historico_atendimentos;
+-- Consultar a view:
+select * from view_historico_atendimentos;
 
--- Explicação:
--- Cria uma visualização com informações de quatro tabelas.
--- Permite consultar o histórico dos atendimentos,
--- identificando a criança, o profissional e os dados
+-- explicacao:
+-- cria uma visualização com informações de quatro tabelas permite consultar o histórico dos atendimentos,identificando a criança, o profissional e os dados
 -- registrados durante cada atendimento.
 
 
--- =====================================================
--- 13) TRIGGER BEFORE INSERT
--- =====================================================
+-- 13 - trigger before insert
 
-DELIMITER //
+delimiter //
 
-CREATE TRIGGER validar_ficha
-BEFORE INSERT ON ficha_atendimento
-FOR EACH ROW
+create trigger validar_ficha
+before insert on ficha_atendimento
+for each row
 
-BEGIN
+begin
 
-    IF NEW.peso IS NULL OR NEW.peso <= 0
-       OR NEW.altura IS NULL OR NEW.altura <= 0 THEN
+    if new.peso is null or new.peso <= 0
+       or new.altura is null or new.altura <= 0 then
 
-        SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT =
+        signal sqlstate '45000'
+        set message_text =
         'Peso e altura devem ser maiores que zero';
 
-    END IF;
+    end if;
 
-END //
+end //
 
-DELIMITER ;
+delimiter ;
 
--- Explicação:
--- Executa uma validação antes de inserir uma ficha.
--- Verifica se o peso e a altura são maiores que zero.
--- Caso algum valor seja inválido, impede a inserção.
+-- explicacao:
+-- executa uma validação antes de inserir uma ficha verifica se o peso e a altura são maiores que zero caso algum valor seja inválido, impede a inserção.
 
+-- 14 - trigger after insert
 
--- =====================================================
--- 14) TRIGGER AFTER INSERT
--- =====================================================
+delimiter //
 
-DELIMITER //
+create trigger registrar_ficha
+after insert on ficha_atendimento
+for each row
 
-CREATE TRIGGER registrar_ficha
-AFTER INSERT ON ficha_atendimento
-FOR EACH ROW
+begin
 
-BEGIN
-
-    INSERT INTO log_ficha
+    insert into log_ficha
     (id_ficha, dataRegistro, descricao)
 
-    VALUES
+    values
     (
-        NEW.id,
+        new.id,
         NOW(),
         'Nova ficha de atendimento cadastrada'
     );
 
-END //
+end //
 
-DELIMITER ;
+delimiter ;
 
--- Explicação:
--- Executa uma ação depois da inserção de uma ficha.
--- Registra automaticamente na tabela log_ficha
--- o identificador da ficha, a data e uma descrição.
+-- explicação:
+-- executa uma ação depois da inserção de uma ficha registra automaticamente na tabela log_ficha o identificador da ficha, a data e uma descrição.
 
+-- 15 - function
 
--- =====================================================
--- 15) FUNCTION
--- =====================================================
+delimiter //
 
-DELIMITER //
+create function contar_atendimentos(p_id_crianca int)
 
-CREATE FUNCTION contar_atendimentos(p_id_crianca INT)
+returns int
+reads sql data
 
-RETURNS INT
-READS SQL DATA
+begin
 
-BEGIN
+    declare total int;
 
-    DECLARE total INT;
+    select COUNT(*)
+    into total
 
-    SELECT COUNT(*)
-    INTO total
+    from ficha_atendimento
 
-    FROM ficha_atendimento
+    inner join agendamento
+        on ficha_atendimento.id_agendamento = agendamento.id
 
-    INNER JOIN agendamento
-        ON ficha_atendimento.id_agendamento = agendamento.id
+    where agendamento.id_crianca = p_id_crianca;
 
-    WHERE agendamento.id_crianca = p_id_crianca;
+    return total;
 
-    RETURN total;
+end //
 
-END //
+delimiter ;
 
-DELIMITER ;
+ -- ultilizando funtiojn
+ 
+select contar_atendimentos(1) as totalAtendimentos;
 
--- Utilizar a FUNCTION:
-SELECT contar_atendimentos(1) AS totalAtendimentos;
+-- explcacao:
+-- recebe o identificador de uma criança conta quantas fichas de atendimento ela possui retorna a quantidade encontrada.
 
--- Explicação:
--- Recebe o identificador de uma criança.
--- Conta quantas fichas de atendimento ela possui.
--- Retorna a quantidade encontrada.
+-- 16 - stored produce
 
+delimiter //
 
--- =====================================================
--- 16) STORED PROCEDURE
--- =====================================================
+create procedure consultar_historico(in p_id_crianca int)
 
-DELIMITER //
+begin
 
-CREATE PROCEDURE consultar_historico(IN p_id_crianca INT)
-
-BEGIN
-
-    SELECT
-        crianca.nome AS crianca,
+    select
+        crianca.nome as crianca,
         ficha_atendimento.dataAtendimento,
         ficha_atendimento.altura,
         ficha_atendimento.peso,
@@ -592,29 +527,22 @@ BEGIN
         ficha_atendimento.desenvolvimentoCog,
         ficha_atendimento.obsEnfermeira
 
-    FROM crianca
+    from crianca
 
-    INNER JOIN agendamento
-        ON crianca.id = agendamento.id_crianca
+    inner join agendamento
+        on crianca.id = agendamento.id_crianca
 
-    INNER JOIN ficha_atendimento
-        ON agendamento.id = ficha_atendimento.id_agendamento
+    inner join ficha_atendimento
+        on agendamento.id = ficha_atendimento.id_agendamento
 
-    WHERE crianca.id = p_id_crianca;
+    where crianca.id = p_id_crianca;
 
-END //
+end //
 
-DELIMITER ;
+delimiter ;
 
--- Executar a STORED PROCEDURE:
-CALL consultar_historico(1);
+-- executar a stored procedure:
+call consultar_historico(1);
 
--- Explicação:
--- Recebe o identificador de uma criança.
--- Apresenta todas as fichas de atendimento registradas
--- para ela, permitindo consultar seu histórico de evolução.
-
-
--- =====================================================
--- FIM DO ARQUIVO SQL
--- =====================================================
+-- explicação:
+-- recebe o identificador de uma criança apresenta todas as fichas de atendimento registradas para ela, permitindo consultar seu histórico de evolução.
