@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Municípios - SEU NOME - RA SEU_RA</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; margin: 0; background: #f4f6f8; color: #222; }
+  header { background: #1d3557; color: #fff; padding: 16px 24px; }
+  header h1 { margin: 0 0 6px; font-size: 22px; }
+  .aluno { font-size: 15px; font-weight: bold; background: #ffd166; color: #1d3557; display: inline-block; padding: 4px 10px; border-radius: 4px; }
+  nav { background: #457b9d; padding: 8px 24px; }
+  nav a { color: #fff; margin-right: 16px; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  main { max-width: 900px; margin: 24px auto; padding: 0 16px; }
+  .filtro { background: #fff; padding: 12px 16px; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,.15); margin-bottom: 16px; }
+  select, button { padding: 6px 10px; font-size: 15px; }
+  button { background: #1d3557; color: #fff; border: 0; border-radius: 4px; cursor: pointer; }
+  button:hover { background: #457b9d; }
+  table { width: 100%; border-collapse: collapse; background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,.15); }
+  th, td { padding: 8px 12px; border-bottom: 1px solid #ddd; text-align: left; }
+  th { background: #1d3557; color: #fff; position: sticky; top: 0; }
+  tr:hover td { background: #eef3f8; }
+  #msg { margin: 10px 0; font-weight: bold; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Municípios do Brasil</h1>
+  <div class="aluno">Nome: SEU NOME &nbsp;|&nbsp; RA: SEU_RA</div>
+</header>
+<nav>
+  <a href="index.html">Início</a>
+  <a href="estados.html">Estados</a>
+  <a href="municipios.html">Municípios</a>
+</nav>
+<main>
+  <div class="filtro">
+    <label for="selEstado"><b>Filtrar por estado:</b></label>
+    <select id="selEstado">
+      <option value="">-- Todos os estados --</option>
+    </select>
+    <button id="btnFiltrar">Filtrar</button>
+  </div>
+
+  <div id="msg">Carregando...</div>
+  <table>
+    <thead>
+      <tr><th>Código IBGE</th><th>Município</th><th>Estado</th><th>UF</th></tr>
+    </thead>
+    <tbody id="corpo"></tbody>
+  </table>
+</main>
+
+<script>
+  const selEstado = document.getElementById('selEstado');
+  const corpo = document.getElementById('corpo');
+  const msg = document.getElementById('msg');
+
+  // 1) Preenche o combo de estados com GET /api/estados
+  function carregarEstados() {
+    return fetch('/api/estados')
+      .then(r => r.json())
+      .then(estados => {
+        estados.forEach(e => {
+          const op = document.createElement('option');
+          op.value = e.nome;
+          op.textContent = e.nome;
+          selEstado.appendChild(op);
+        });
+      });
+  }
+
+  // 2) Busca municipios: GET /api/municipios  ou  GET /api/municipios?estado=NOME
+  function carregarMunicipios() {
+    const estado = selEstado.value;
+    const url = estado
+      ? '/api/municipios?estado=' + encodeURIComponent(estado)
+      : '/api/municipios';
+
+    msg.textContent = 'Carregando...';
+    corpo.innerHTML = '';
+
+    fetch(url)
+      .then(resposta => {
+        if (!resposta.ok) throw new Error('HTTP ' + resposta.status);
+        return resposta.json();
+      })
+      .then(municipios => {
+        msg.textContent = municipios.length + ' municípios' + (estado ? ' em ' + estado : ' no Brasil');
+        const linhas = municipios.map(m =>
+          '<tr><td>' + m.id + '</td><td>' + m.nome + '</td><td>' + m.estadoNome + '</td><td>' + m.estadoSigla + '</td></tr>'
+        );
+        corpo.innerHTML = linhas.join('');
+      })
+      .catch(erro => msg.textContent = 'Erro ao carregar municípios: ' + erro.message);
+  }
+
+  document.getElementById('btnFiltrar').addEventListener('click', carregarMunicipios);
+  selEstado.addEventListener('change', carregarMunicipios);
+
+  // Ao abrir: carrega estados e, se vier ?estado=Nome na URL (link da pagina de estados), ja filtra
+  carregarEstados().then(() => {
+    const param = new URLSearchParams(window.location.search).get('estado');
+    if (param) selEstado.value = param;
+    carregarMunicipios();
+  }).catch(erro => msg.textContent = 'Erro: ' + erro.message);
+</script>
+</body>
+</html>

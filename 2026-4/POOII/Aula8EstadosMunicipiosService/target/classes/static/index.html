@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aula8EstadosMunicipiosService - SEU NOME - RA SEU_RA</title>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; margin: 0; background: #f4f6f8; color: #222; }
+  header { background: #1d3557; color: #fff; padding: 16px 24px; }
+  header h1 { margin: 0 0 6px; font-size: 22px; }
+  .aluno { font-size: 15px; font-weight: bold; background: #ffd166; color: #1d3557; display: inline-block; padding: 4px 10px; border-radius: 4px; }
+  main { max-width: 800px; margin: 24px auto; padding: 0 16px; }
+  .cards { display: flex; gap: 16px; flex-wrap: wrap; }
+  .card { flex: 1 1 260px; background: #fff; border-radius: 8px; padding: 20px; box-shadow: 0 1px 4px rgba(0,0,0,.15); text-align: center; }
+  .card .num { font-size: 40px; font-weight: bold; color: #1d3557; }
+  a.btn { display: inline-block; margin-top: 10px; background: #1d3557; color: #fff; padding: 8px 16px; border-radius: 4px; text-decoration: none; }
+  a.btn:hover { background: #457b9d; }
+  code { background: #e9ecef; padding: 2px 5px; border-radius: 3px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Aula 8 - Exercício 7: Estados x Municípios</h1>
+  <div class="aluno">Nome: SEU NOME &nbsp;|&nbsp; RA: SEU_RA</div>
+</header>
+<main>
+  <div class="cards">
+    <div class="card">
+      <div class="num" id="totalEstados">...</div>
+      <div>Estados importados</div>
+      <a class="btn" href="estados.html">Ver estados</a>
+    </div>
+    <div class="card">
+      <div class="num" id="totalMunicipios">...</div>
+      <div>Municípios importados</div>
+      <a class="btn" href="municipios.html">Ver municípios</a>
+    </div>
+  </div>
+  <h3>Endpoints REST (JSON)</h3>
+  <ul>
+    <li><a href="/api/estados"><code>GET /api/estados</code></a></li>
+    <li><a href="/api/municipios"><code>GET /api/municipios</code></a></li>
+    <li><a href="/api/municipios?estado=Paraná"><code>GET /api/municipios?estado=Paraná</code></a></li>
+  </ul>
+</main>
+
+<script>
+  // Totais carregados via fetch nos endpoints REST
+  fetch('/api/estados')
+    .then(r => r.json())
+    .then(lista => document.getElementById('totalEstados').textContent = lista.length)
+    .catch(() => document.getElementById('totalEstados').textContent = 'erro');
+
+  fetch('/api/municipios/total')
+    .then(r => r.json())
+    .then(total => document.getElementById('totalMunicipios').textContent = total)
+    .catch(() => document.getElementById('totalMunicipios').textContent = 'erro');
+</script>
+</body>
+</html>

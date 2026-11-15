@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Municípios - SEU NOME - RA SEU_RA</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="topo">
+  <div class="topo-conteudo">
+    <div>
+      <h1>Municípios</h1>
+      <p class="sub">Aula 8 - Exercício 7 · Spring Boot + JPA + fetch</p>
+    </div>
+    <div class="aluno">Nome: SEU NOME<br><span>RA: SEU_RA</span></div>
+  </div>
+  <nav class="menu" aria-label="Principal">
+    <a href="index.html">Início</a>
+    <a href="estados.html">Estados</a>
+    <a href="municipios.html" aria-current="page">Municípios</a>
+  </nav>
+</header>
+
+<main>
+  <div class="filtros">
+    <div class="campo">
+      <label for="estado">Estado</label>
+      <select id="estado">
+        <option value="">Todos os estados</option>
+      </select>
+    </div>
+    <div class="campo">
+      <label for="busca">Nome do município</label>
+      <input id="busca" type="search" placeholder="Digite para buscar" autocomplete="off">
+    </div>
+    <button class="btn claro" id="limpar" type="button">Limpar filtros</button>
+  </div>
+
+  <p class="status" id="status" role="status">Carregando...</p>
+
+  <div class="tabela-wrap">
+    <table class="tabela">
+      <thead>
+      <tr><th>Código IBGE</th><th>Município</th><th>Estado</th><th>UF</th></tr>
+      </thead>
+      <tbody id="corpo"></tbody>
+    </table>
+  </div>
+</main>
+
+<script src="js/util.js"></script>
+<script src="js/municipios.js"></script>
+</body>
+</html>
