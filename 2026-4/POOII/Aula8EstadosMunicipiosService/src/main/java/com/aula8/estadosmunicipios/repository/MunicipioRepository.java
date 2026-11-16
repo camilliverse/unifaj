@@ -17,7 +17,7 @@ public interface MunicipioRepository extends JpaRepository<Municipio, Long> {
             """)
     List<MunicipioDTO> listarTodos();
 
-    /** Filtro pelo NOME do estado (sem diferenciar maiusculas/minusculas). */
+    /** Filtro pelo nome do estado (sem diferenciar maiusculas/minusculas). */
     @Query("""
             select new com.aula8.estadosmunicipios.dto.MunicipioDTO(m.id, m.nome, e.id, e.nome, e.sigla)
             from Municipio m join m.estado e

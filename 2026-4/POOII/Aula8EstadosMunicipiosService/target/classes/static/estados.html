@@ -1,69 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Estados - SEU NOME - RA SEU_RA</title>
-<style>
-  body { font-family: Arial, Helvetica, sans-serif; margin: 0; background: #f4f6f8; color: #222; }
-  header { background: #1d3557; color: #fff; padding: 16px 24px; }
-  header h1 { margin: 0 0 6px; font-size: 22px; }
-  .aluno { font-size: 15px; font-weight: bold; background: #ffd166; color: #1d3557; display: inline-block; padding: 4px 10px; border-radius: 4px; }
-  nav { background: #457b9d; padding: 8px 24px; }
-  nav a { color: #fff; margin-right: 16px; text-decoration: none; }
-  nav a:hover { text-decoration: underline; }
-  main { max-width: 800px; margin: 24px auto; padding: 0 16px; }
-  table { width: 100%; border-collapse: collapse; background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,.15); }
-  th, td { padding: 8px 12px; border-bottom: 1px solid #ddd; text-align: left; }
-  th { background: #1d3557; color: #fff; }
-  tr:hover td { background: #eef3f8; }
-  #msg { margin: 10px 0; font-weight: bold; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0F1D35">
+  <title>Estados - Camilli Santos - RA 12529495</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<header>
-  <h1>Estados do Brasil</h1>
-  <div class="aluno">Nome: SEU NOME &nbsp;|&nbsp; RA: SEU_RA</div>
+<header class="topo">
+  <div class="topo-conteudo">
+    <div class="marca">
+      <div class="marca-icone" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/></svg></div>
+      <div>
+        <h1>Estados</h1>
+        <p class="sub">Aula 8 - Exercício 7</p>
+      </div>
+    </div>
+    <div class="aluno"><b>Nome:</b> Camilli Santos<br><b>RA:</b> 12529495</div>
+  </div>
+  <nav class="menu" aria-label="Principal">
+    <a href="index.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>Início</span></a>
+    <a href="estados.html" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/></svg><span>Estados</span></a>
+    <a href="municipios.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Municípios</span></a>
+  </nav>
 </header>
-<nav>
-  <a href="index.html">Início</a>
-  <a href="estados.html">Estados</a>
-  <a href="municipios.html">Municípios</a>
-</nav>
+
 <main>
-  <div id="msg">Carregando...</div>
-  <table>
-    <thead>
-      <tr><th>Código</th><th>Estado</th><th>Sigla</th><th>Municípios</th></tr>
-    </thead>
-    <tbody id="corpo"></tbody>
-  </table>
+  <div class="cartao busca-cartao">
+    <div class="campo">
+      <label for="busca">Buscar estado</label>
+      <input id="busca" type="search" placeholder="Nome ou sigla, por exemplo Paraná ou PR" autocomplete="off">
+    </div>
+  </div>
+
+  <p class="status" id="status" role="status">Carregando...</p>
+  <ul class="grade" id="lista"></ul>
 </main>
 
-<script>
-  const corpo = document.getElementById('corpo');
-  const msg = document.getElementById('msg');
-
-  // GET /api/estados -> JSON com todos os estados do banco
-  fetch('/api/estados')
-    .then(resposta => {
-      if (!resposta.ok) throw new Error('HTTP ' + resposta.status);
-      return resposta.json();
-    })
-    .then(estados => {
-      msg.textContent = estados.length + ' estados encontrados';
-      estados.forEach(e => {
-        const tr = document.createElement('tr');
-        const link = 'municipios.html?estado=' + encodeURIComponent(e.nome);
-        tr.innerHTML =
-          '<td>' + e.id + '</td>' +
-          '<td>' + e.nome + '</td>' +
-          '<td>' + e.sigla + '</td>' +
-          '<td><a href="' + link + '">ver municípios</a></td>';
-        corpo.appendChild(tr);
-      });
-    })
-    .catch(erro => msg.textContent = 'Erro ao carregar estados: ' + erro.message);
-</script>
+<script src="js/util.js"></script>
+<script src="js/estados.js"></script>
 </body>
 </html>

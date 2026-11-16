@@ -1,60 +1,59 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aula8EstadosMunicipiosService - SEU NOME - RA SEU_RA</title>
-<style>
-  body { font-family: Arial, Helvetica, sans-serif; margin: 0; background: #f4f6f8; color: #222; }
-  header { background: #1d3557; color: #fff; padding: 16px 24px; }
-  header h1 { margin: 0 0 6px; font-size: 22px; }
-  .aluno { font-size: 15px; font-weight: bold; background: #ffd166; color: #1d3557; display: inline-block; padding: 4px 10px; border-radius: 4px; }
-  main { max-width: 800px; margin: 24px auto; padding: 0 16px; }
-  .cards { display: flex; gap: 16px; flex-wrap: wrap; }
-  .card { flex: 1 1 260px; background: #fff; border-radius: 8px; padding: 20px; box-shadow: 0 1px 4px rgba(0,0,0,.15); text-align: center; }
-  .card .num { font-size: 40px; font-weight: bold; color: #1d3557; }
-  a.btn { display: inline-block; margin-top: 10px; background: #1d3557; color: #fff; padding: 8px 16px; border-radius: 4px; text-decoration: none; }
-  a.btn:hover { background: #457b9d; }
-  code { background: #e9ecef; padding: 2px 5px; border-radius: 3px; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0F1D35">
+  <title>Início - Camilli Santos - RA 12529495</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<header>
-  <h1>Aula 8 - Exercício 7: Estados x Municípios</h1>
-  <div class="aluno">Nome: SEU NOME &nbsp;|&nbsp; RA: SEU_RA</div>
-</header>
-<main>
-  <div class="cards">
-    <div class="card">
-      <div class="num" id="totalEstados">...</div>
-      <div>Estados importados</div>
-      <a class="btn" href="estados.html">Ver estados</a>
+<header class="topo">
+  <div class="topo-conteudo">
+    <div class="marca">
+      <div class="marca-icone" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/></svg></div>
+      <div>
+        <h1>Estados e Municípios</h1>
+        <p class="sub">Aula 8 - Exercício 7</p>
+      </div>
     </div>
-    <div class="card">
-      <div class="num" id="totalMunicipios">...</div>
-      <div>Municípios importados</div>
-      <a class="btn" href="municipios.html">Ver municípios</a>
-    </div>
+    <div class="aluno"><b>Nome:</b> Camilli Santos <br><b>RA:</b> 12529495</div>
   </div>
-  <h3>Endpoints REST (JSON)</h3>
-  <ul>
-    <li><a href="/api/estados"><code>GET /api/estados</code></a></li>
-    <li><a href="/api/municipios"><code>GET /api/municipios</code></a></li>
-    <li><a href="/api/municipios?estado=Paraná"><code>GET /api/municipios?estado=Paraná</code></a></li>
-  </ul>
+  <nav class="menu" aria-label="Principal">
+    <a href="index.html" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>Início</span></a>
+    <a href="estados.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/></svg><span>Estados</span></a>
+    <a href="municipios.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Municípios</span></a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <h2>Consulta de estados e municípios</h2>
+    <p>Os dados dos arquivos CSV foram importados para o banco e são entregues pela API REST em JSON.</p>
+  </section>
+
+  <div class="stats">
+    <a class="stat" href="estados.html">
+      <span class="stat-icone" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/></svg></span>
+      <span><strong id="totalEstados">...</strong><span class="stat-rotulo">Estados</span></span>
+    </a>
+    <a class="stat verde" href="municipios.html">
+      <span class="stat-icone" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+      <span><strong id="totalMunicipios">...</strong><span class="stat-rotulo">Municípios</span></span>
+    </a>
+  </div>
+
+  <section class="cartao">
+    <h3 class="cartao-titulo">API REST</h3>
+    <ul class="endpoints">
+      <li><span class="metodo">GET</span> <a href="/api/estados"><code>/api/estados</code></a> <span class="desc">Todos os estados</span></li>
+      <li><span class="metodo">GET</span> <a href="/api/municipios"><code>/api/municipios</code></a> <span class="desc">Todos os municípios, com o nome do estado</span></li>
+      <li><span class="metodo">GET</span> <a href="/api/municipios?estado=Paraná"><code>/api/municipios?estado=Paraná</code></a> <span class="desc">Municípios filtrados pelo nome do estado</span></li>
+    </ul>
+  </section>
 </main>
 
-<script>
-  // Totais carregados via fetch nos endpoints REST
-  fetch('/api/estados')
-    .then(r => r.json())
-    .then(lista => document.getElementById('totalEstados').textContent = lista.length)
-    .catch(() => document.getElementById('totalEstados').textContent = 'erro');
-
-  fetch('/api/municipios/total')
-    .then(r => r.json())
-    .then(total => document.getElementById('totalMunicipios').textContent = total)
-    .catch(() => document.getElementById('totalMunicipios').textContent = 'erro');
-</script>
+<script src="js/util.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>
